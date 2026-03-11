@@ -29,10 +29,11 @@ public class RestAgentGateway implements AgentGateway {
     @Override
     public TaskResponse createTask(TaskRequest request) throws Exception {
         String url = baseUrl + "/api/agents/tasks";
+        var metadata = request.getMetadata() != null ? request.getMetadata() : Map.of();
         String body = mapper.writeValueAsString(Map.of(
                 "title", request.getTitle(),
                 "description", request.getDescription(),
-                "metadata", request.getMetadata()
+                "metadata", metadata
         ));
         HttpRequest.Builder b = HttpRequest.newBuilder()
                 .uri(URI.create(url))
