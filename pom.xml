@@ -6,17 +6,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.com.valhalla</groupId>
-    <artifactId>agent-platform</artifactId>
+    <artifactId>odin-agent-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Valhalla Agent Platform</name>
-    <description>Multi-Agent Orchestration Platform for Code Analysis and Continuous Improvement</description>
-    <url>https://github.com/Valhalla-Co/agent-platform</url>
+    <name>Odin Agent</name>
+    <description>Agente especializado em análise de código e geração de specs de melhoria</description>
+    <url>https://github.com/Valhalla-Co/odin-agent</url>
 
     <modules>
-        <module>agent-core</module>
-        <module>agent-base</module>
+        <module>odin-agent</module>
     </modules>
 
     <properties>
@@ -33,11 +32,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>br.com.valhalla</groupId>
-                <artifactId>agent-core</artifactId>
-                <version>${project.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
