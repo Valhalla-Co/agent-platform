@@ -14,13 +14,13 @@ import java.nio.file.Paths;
     version = "Odin Agent 1.0.0",
     description = "🔱 Odin - Agente especializado em análise de código e geração de specs de melhoria"
 )
-public class AgentBaseCli implements Runnable {
+public class OdinCli implements Runnable {
 
     @Parameters(index = "0", description = "Caminho do projeto a ser analisado")
     private String projectPath;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new AgentBaseCli()).execute(args);
+        int exitCode = new CommandLine(new OdinCli()).execute(args);
         System.exit(exitCode);
     }
 

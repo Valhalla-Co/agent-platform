@@ -2,7 +2,6 @@ package br.com.valhalla.odin.core;
 import br.com.valhalla.odin.discovery.ProjectContext;
 import br.com.valhalla.odin.patterns.LearnedPatterns;
 import br.com.valhalla.odin.specs.*;
-import br.com.valhalla.agentbase.discovery.ProjectContext;
 
 import java.util.*;
 
