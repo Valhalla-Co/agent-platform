@@ -33,52 +33,39 @@ public class OdinAgent {
      * Analisa um projeto, aprende seus padrões e gera uma spec de melhorias.
      */
     public OdinAnalysisResult analyze(Path projectPath) {
-        System.out.println("╔════════════════════════════════════════════════════════════════╗");
-        System.out.println("║                     🔱 ODIN AGENT 🔱                           ║");
-        System.out.println("║            Agente Especializado em Análise de Código          ║");
-        System.out.println("╚════════════════════════════════════════════════════════════════╝");
-        System.out.println();
-        System.out.println("📂 Projeto: " + projectPath.toAbsolutePath());
-        System.out.println("⏰ Início: " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+        System.out.println("\n=== ODIN AGENT - Code Analysis ===");
+        System.out.println("Project: " + projectPath.toAbsolutePath());
+        System.out.println("Started: " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
         System.out.println();
 
         // Fase 1: Descoberta do projeto
-        System.out.println("🔍 Fase 1: Descoberta do Projeto");
-        System.out.println("─────────────────────────────────────────────────────────────────");
+        System.out.println("[1/3] Project Discovery");
         ProjectContext context = discovery.discover(projectPath.toAbsolutePath().toString());
-        System.out.println("✅ Projeto descoberto: " + context.getProjectName());
-        System.out.println("   • Tipo: " + context.getProjectType());
-        System.out.println("   • Arquivos analisados: " + context.getSourceFiles().size());
+        System.out.println("  Project: " + context.getProjectName() + " (" + context.getProjectType() + ")");
+        System.out.println("  Files analyzed: " + context.getSourceFiles().size());
         System.out.println();
 
         // Fase 2: Aprendizado de padrões
-        System.out.println("🧠 Fase 2: Aprendizado de Padrões");
-        System.out.println("─────────────────────────────────────────────────────────────────");
+        System.out.println("[2/3] Pattern Learning");
         LearnedPatterns patterns = patternLearner.learn(context);
-        System.out.println("✅ Padrões identificados:");
-        System.out.println("   • Arquiteturais: " + patterns.getArchitecturalPatterns().size());
-        System.out.println("   • Design: " + patterns.getDesignPatterns().size());
-        System.out.println("   • Código: " + patterns.getCodePatterns().size());
+        System.out.println("  Patterns identified: " +
+            (patterns.getArchitecturalPatterns().size() +
+             patterns.getDesignPatterns().size() +
+             patterns.getCodePatterns().size()));
         System.out.println();
 
         // Fase 3: Geração de Spec
-        System.out.println("📝 Fase 3: Geração de Spec de Melhorias");
-        System.out.println("─────────────────────────────────────────────────────────────────");
+        System.out.println("[3/3] Generating Improvement Spec");
         ImprovementSpec spec = specGenerator.generate(context, patterns);
-        System.out.println("✅ Spec gerada:");
-        System.out.println("   • Melhorias sugeridas: " + spec.getImprovements().size());
-        System.out.println("   • Prioridade alta: " + spec.getHighPriorityCount());
-        System.out.println("   • Estimativa: " + spec.getTotalEstimation());
+        System.out.println("  Improvements suggested: " + spec.getImprovements().size() +
+                           " (High priority: " + spec.getHighPriorityCount() + ")");
+        System.out.println("  Estimated effort: " + spec.getTotalEstimation());
         System.out.println();
 
         // Salvar spec
         Path specPath = saveSpec(projectPath, spec);
-        System.out.println("💾 Spec salva em: " + specPath);
-        System.out.println();
-
-        System.out.println("╔════════════════════════════════════════════════════════════════╗");
-        System.out.println("║                   ✅ ANÁLISE CONCLUÍDA ✅                      ║");
-        System.out.println("╚════════════════════════════════════════════════════════════════╝");
+        System.out.println("Spec saved: " + specPath);
+        System.out.println("\nAnalysis completed successfully.\n");
 
         return new OdinAnalysisResult(context, patterns, spec, specPath);
     }
@@ -91,7 +78,7 @@ public class OdinAgent {
         try {
             java.nio.file.Files.writeString(specPath, spec.toMarkdown());
         } catch (Exception e) {
-            System.err.println("⚠️  Erro ao salvar spec: " + e.getMessage());
+            System.err.println("Warning: Failed to save spec - " + e.getMessage());
         }
 
         return specPath;
