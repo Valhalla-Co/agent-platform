@@ -32,6 +32,7 @@ Pattern for managing PR_BODY.md files - temporary auxiliary files used to create
 
 Look for:
 - Files ending in `*_BODY.md`
+- Files ending in `*_FINAL.md`
 - Files ending in `*_TEMP.md` or `*_DRAFT.md`
 - Auxiliary markdown files in root directory
 - Files that should be in `.gitignore` but aren't
