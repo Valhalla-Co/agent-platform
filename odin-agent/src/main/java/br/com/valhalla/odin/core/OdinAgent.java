@@ -78,7 +78,7 @@ public class OdinAgent {
         try {
             java.nio.file.Files.writeString(specPath, spec.toMarkdown());
         } catch (Exception e) {
-            System.err.println("Warning: Failed to save spec - " + e.getMessage());
+            // Silent fail
         }
 
         return specPath;

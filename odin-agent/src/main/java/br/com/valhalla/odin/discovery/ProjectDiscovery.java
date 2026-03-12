@@ -28,7 +28,6 @@ public class ProjectDiscovery {
      */
     public ProjectContext discover(String projectPath) {
         Path root = Path.of(projectPath).toAbsolutePath().normalize();
-        log.info("Descobrindo projeto em: {}", root);
 
         if (!Files.isDirectory(root)) {
             throw new IllegalArgumentException("Caminho não é um diretório válido: " + root);
@@ -44,8 +43,6 @@ public class ProjectDiscovery {
 
         String projectName = root.getFileName().toString();
 
-        log.info("Projeto descoberto: {} [{}] - {} arquivos fonte",
-            projectName, type, sourceFiles.size());
 
         return new ProjectContext(
             root.toString(), projectName, type, language,

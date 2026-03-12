@@ -12,7 +12,7 @@ import java.nio.file.Paths;
     name = "odin",
     mixinStandardHelpOptions = true,
     version = "Odin Agent 1.0.0",
-    description = "🔱 Odin - Agente especializado em análise de código e geração de specs de melhoria"
+    description = "Odin - Code analysis and improvement spec generator"
 )
 public class OdinCli implements Runnable {
 
@@ -27,13 +27,8 @@ public class OdinCli implements Runnable {
     @Override
     public void run() {
         if (projectPath == null || projectPath.isEmpty()) {
-            System.err.println("❌ Erro: Caminho do projeto não fornecido");
-            System.err.println();
-            System.err.println("Uso: odin <caminho-do-projeto>");
-            System.err.println();
-            System.err.println("Exemplo:");
-            System.err.println("  odin .");
-            System.err.println("  odin C:\\projetos\\meu-projeto");
+            System.err.println("Error: Project path not provided");
+            System.err.println("Usage: odin <project-path>");
             System.exit(1);
             return;
         }
@@ -41,7 +36,7 @@ public class OdinCli implements Runnable {
         Path path = Paths.get(projectPath);
 
         if (!path.toFile().exists()) {
-            System.err.println("❌ Erro: Caminho não existe: " + path.toAbsolutePath());
+            System.err.println("Error: Path does not exist: " + path.toAbsolutePath());
             System.exit(1);
             return;
         }
@@ -50,7 +45,7 @@ public class OdinCli implements Runnable {
             OdinAgent odin = new OdinAgent();
             odin.analyze(path);
         } catch (Exception e) {
-            System.err.println("❌ Erro durante análise: " + e.getMessage());
+            System.err.println("Error: " + e.getMessage());
             e.printStackTrace();
             System.exit(1);
         }
