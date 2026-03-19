@@ -6,9 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ollama-provider" />
         <module name="agent-core" />
-        <module name="agent-base" />
+        <module name="odin-orchestrator" />
+        <module name="architect-agent" />
+        <module name="dev-agent" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="agent-base" target="21" />
+      <module name="odin-agent" target="21" />
+    </bytecodeTargetLevel>
   </component>
 </project>

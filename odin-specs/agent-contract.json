@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Contract",
+  "description": "Contrato mínimo de mensagens entre Odin (orquestrador) e agentes especializados",
+  "type": "object",
+  "properties": {
+    "requestId": { "type": "string" },
+    "source": { "type": "string", "description": "Origem da requisição (user/cron/other)" },
+    "intent": { "type": "string", "description": "Intenção: analyze/refactor/build/review" },
+    "payload": { "type": "object", "description": "Dados específicos da intenção" },
+    "repoPath": { "type": "string" },
+    "branch": { "type": "string" },
+    "timeoutSeconds": { "type": "integer", "minimum": 1 }
+  },
+  "required": ["requestId","source","intent","repoPath"]
+}
