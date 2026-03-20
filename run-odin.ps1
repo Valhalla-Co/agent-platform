@@ -1,5 +1,5 @@
-# run-odin-v2.ps1 - Build reactor, build classpath and run OdinApp using compiled classes (no need to install to local repo)
-# Usage: Powershell ./run-odin-v2.ps1
+# run-odin.ps1 - Build reactor, build classpath and run OdinApp using compiled classes (no need to install to local repo)
+# Usage: Powershell ./run-odin.ps1
 
 param(
     [switch]$ForceFake
@@ -7,7 +7,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-Write-Host "STARTING RUN V2"
+Write-Host "STARTING RUN"
 Write-Host "Using JAVA_HOME: $env:JAVA_HOME"
 Write-Host "Force fake provider: $ForceFake"
 
