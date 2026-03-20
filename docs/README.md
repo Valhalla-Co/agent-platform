@@ -17,6 +17,7 @@
 - [Odin Brain Guide](ODIN_BRAIN_GUIDE.md) - Guia completo do sistema de brain e lessons
 
 ## Status & History
+- [🧠 LLM Migration Analysis](LLM_MIGRATION_ANALYSIS.md) - **(New)** Análise de substituição do Ollama por Groq/Cloud
 - [Init Status](INIT_STATUS.md) - Status inicial do projeto
 - [Build Success](BUILD_SUCCESS.md) - Registro de build bem-sucedido
 - [Verbosity Reduction](VERBOSITY_REDUCTION.md) - Documentação da redução de verbosidade
