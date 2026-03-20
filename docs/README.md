@@ -7,6 +7,7 @@
 - [Início Rápido](INICIO_RAPIDO.md) - Guia de início rápido (PT-BR)
 
 ## Architecture & Restructuring
+- [🏛️ Architecture Overview](ARCHITECTURE.md) - **(New)** Documentação principal da arquitetura v2.0
 - [Restructure Plan](RESTRUCTURE_PLAN.md) - Plano detalhado da reestruturação
 - [Restructure Complete](RESTRUCTURE_COMPLETE.md) - Resumo da reestruturação concluída
 - [Class Mapping](CLASS_MAPPING.md) - Mapeamento de classes antes/depois
